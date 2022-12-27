@@ -4,6 +4,8 @@ use App\Http\Controllers\pelangganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\produkController;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\produkController2;
+use App\Http\Controllers\kategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,9 @@ Route::get('/', function () {
 });
 
 Route::get('/produk', [produkController::class, 'index']);
+Route::get('/produk/store', [produkController::class, 'store']);
+Route::get('/produk/update', [produkController::class, 'update']);
+Route::get('/produk/delete', [produkController::class, 'delete']);
 Route::get('/produk/show', [produkController::class, 'show']);
 
 Route::get('/halaman', function () {
@@ -33,3 +38,9 @@ Route::get('/halaman', function () {
 });
 
 Route::get('/pelanggan', [pelangganController::class, 'index']);
+// Route::resource('produk2', 'produkController2.php');
+Route::apiResource('produk2', produkController2::class);
+Route::get('/kategori', [kategoriController::class, 'index']);
+Route::get('/kategori/store', [kategoriController::class, 'store']);
+Route::get('/kategori/update', [kategoriController::class, 'update']);
+Route::get('/kategori/delete', [kategoriController::class, 'delete']);
